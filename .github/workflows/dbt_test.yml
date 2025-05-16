@@ -32,8 +32,8 @@ jobs:
 
       - name: Run DBT models
         run: |
-          dbt run --project-dir ./bbva_analysis --profiles-dir ~/.dbt
+          dbt run
 
       - name: Generate DBT docs
         run: |
-          dbt docs generate --project-dir ./bbva_analysis --profiles-dir ~/.dbt
+          dbt docs generate
