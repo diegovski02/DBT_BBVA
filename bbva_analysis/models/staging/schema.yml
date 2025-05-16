@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: raw
+    database: TR_BI_BBVA  # Fuente de datos: TR_BI_BBVA
+    schema: dbo           # Esquema: dbo en TR_BI_BBVA
+    tables:
+      - name: Balances
+      - name: Customers
+      - name: Digital_Activity
+      - name: Liabilities
+      - name: Movements
+      - name: Sample_Submission
+
+models:
+  - name: staging
+    description: "Tablas de staging"
+    config:
+      +database: STG_BBVA   # Aquí se crea la tabla en STG_BBVA
+      +schema: stg          # Esquema de STG_BBVA será "stg"
+      +materialized: table   # El modelo será materializado como una tabla
+    tables:
+      - name: stg_balances
+        description: "Tabla staging para Balances"
+      - name: stg_customers
+        description: "Tabla staging para Customers"
+      - name: stg_digital_activity
+        description: "Tabla staging para Digital Activity"
+      - name: stg_liabilities
+        description: "Tabla staging para Liabilities"
+      - name: stg_movements
+        description: "Tabla staging para Movements"
+      - name: stg_sample_submission
+        description: "Tabla staging para Sample Submission"

@@ -1,0 +1,178 @@
+version: 2
+
+models:
+  # Dim Customer (Asegurando que esté en la base de datos y esquema correcto)
+  - name: dim_customer
+    description: "Tabla dimensional de clientes con sus datos personales."
+    config:
+      +database: MASTER_BBVA
+      +schema: DW
+    columns:
+      - name: customer_key
+        description: "Clave técnica del Cliente."
+        type: integer
+        tests:
+          - not_null
+          - unique
+      - name: ID
+        description: "Identificador natural del Cliente."
+        type: varchar(64)
+        tests:
+          - not_null
+      - name: age
+        description: "Edad del cliente."
+        type: float
+      - name: income
+        description: "Ingreso mensual del cliente."
+        type: float
+      - name: time_from_specialized
+        description: "Tiempo en segmento especializado."
+        type: float
+      - name: type_job
+        description: "Tipo de Empleo."
+        type: varchar(32)
+      - name: bureau_risk
+        description: "Categoría de Riesgo en Buró."
+        type: varchar(32)
+      - name: payroll
+        description: "Monto de la nómina del cliente."
+        type: float
+      - name: product_1
+        description: "Posee Producto 1? (Yes/No)."
+        type: bit
+        tests:
+          - not_null
+      - name: product_2
+        description: "Posee Producto 2? (Yes/No)."
+        type: bit
+        tests:
+          - not_null
+      - name: product_3
+        description: "Posee Producto 3? (Yes/No)."
+        type: bit
+        tests:
+          - not_null
+      - name: product_4
+        description: "Posee Producto 4? (Yes/No)."
+        type: bit
+        tests:
+          - not_null
+      - name: ofert_1
+        description: "Recibió Oferta 1."
+        type: bit
+        tests:
+          - not_null
+      - name: ofert_2
+        description: "Recibió Oferta 2."
+        type: bit
+        tests:
+          - not_null
+      - name: ofert_3
+        description: "Recibió Oferta 3."
+        type: bit
+        tests:
+          - not_null
+
+  # Dim Tiempo (Asegurando que esté en la base de datos y esquema correcto)
+  - name: dim_tiempo
+    description: "Tabla dimensional para representar las fechas con su detalle (mes, año, etc.)."
+    config:
+      +database: MASTER_BBVA
+      +schema: DW
+    columns:
+      - name: PeriodKey
+        type: integer
+        description: "Clave Técnica de Periodo."
+        tests:
+          - not_null
+          - unique
+      - name: period_code
+        type: varchar(32)
+        description: "Código de Periodo."
+        tests:
+          - not_null
+      - name: month
+        type: tinyint
+        description: "Mes Numérico Asociado."
+        tests:
+          - not_null
+
+  # Fact Customer Period (Hechos relacionados con clientes y períodos)
+  - name: fact_customer_period
+    description: "Tabla de hechos relacionada con los balances y movimientos de los clientes."
+    config:
+      +database: MASTER_BBVA
+      +schema: DW
+    columns:
+      - name: customer_key
+        type: integer
+        description: "Clave foránea hacia la tabla Dim_Customer."
+        tests:
+          - not_null
+      - name: period_key
+        type: integer
+        description: "Clave foránea hacia la tabla Dim_Tiempo."
+        tests:
+          - not_null
+      - name: balance_amount
+        type: float
+        description: "Saldo Total del Cliente en el Periodo."
+      - name: days_default
+        type: float
+        description: "Días en Mora."
+      - name: debt_product_1
+        type: float
+        description: "Deuda asociada al producto 1."
+      - name: debt_product_2
+        type: float
+        description: "Deuda asociada al producto 2."
+      - name: movements_type_1
+        type: float
+        description: "Cantidad Movimientos Tipo_1."
+      - name: movements_type_2
+        type: float
+        description: "Cantidad Movimientos Tipo_2."
+      - name: movements_type_3
+        type: float
+        description: "Cantidad Movimientos Tipo_3."
+      - name: movements_type_4
+        type: float
+        description: "Cantidad Movimientos Tipo_4."
+      - name: dig_1
+        type: float
+        description: "Métrica digital 1."
+      - name: dig_2
+        type: float
+        description: "Métrica digital 2."
+      - name: dig_3
+        type: float
+        description: "Métrica digital 3."
+      - name: dig_4
+        type: float
+        description: "Métrica digital 4."
+      - name: dig_5
+        type: float
+        description: "Métrica digital 5."
+      - name: dig_6
+        type: float
+        description: "Métrica digital 6."
+      - name: dig_7
+        type: float
+        description: "Métrica digital 7."
+      - name: dig_8
+        type: float
+        description: "Métrica digital 8."
+      - name: dig_9
+        type: float
+        description: "Métrica digital 9."
+      - name: dig_10
+        type: float
+        description: "Métrica digital 10."
+      - name: dig_11
+        type: float
+        description: "Métrica digital 11."
+      - name: target
+        type: tinyint
+        description: "Indicador de Anfitrión (0/1)."
+        tests:
+          - not_null

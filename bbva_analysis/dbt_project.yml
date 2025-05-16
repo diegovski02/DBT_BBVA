@@ -1,0 +1,36 @@
+name: 'bbva_analysis'
+version: '1.0.0'
+
+profile: 'bbva_analysis'  # El perfil debe coincidir con el nombre en el archivo profiles.yml
+
+model-paths: ["models"]  # Ubicación de tus modelos SQL
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuración de modelos
+models:
+  bbva_analysis:
+    raw:
+      +database: TR_BI_BBVA
+      +schema: dbo
+      +materialized: table
+    staging:
+      +database: STG_BBVA
+      +schema: stg
+      +materialized: table
+    master:
+      +database: MASTER_BBVA
+      +schema: DW
+      +materialized: table
+
+  dbt_artifacts:
+    +database: DBT_ARTIFACTS
+    +schema: artifacts
+    +materialized: table
