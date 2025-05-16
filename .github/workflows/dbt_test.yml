@@ -20,12 +20,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install DBT and dependencies
-        run: |
-          python -m pip install
-          pip install dbt
-          dbt deps
-
       - name: Run DBT models
         run: |
           dbt run --select dbt_artifacts
