@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Runner Windows para Windows 11
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -21,19 +21,31 @@ jobs:
           python-version: '3.11'
 
       - name: Install DBT and dependencies
-        shell: pwsh
+        shell: bash
         run: |
           python -m pip install --upgrade pip
           pip install dbt
           dbt deps
 
+      - name: Create basic dbt_project.yml
+        shell: bash
+        run: |
+          echo "name: 'ci_test_project'" > dbt_project.yml
+          echo "version: '1.0'" >> dbt_project.yml
+          echo "config-version: 2" >> dbt_project.yml
+          echo "profile: 'default'" >> dbt_project.yml
+          echo "model-paths: [\"models\"]" >> dbt_project.yml
+          echo "target-path: \"target\"" >> dbt_project.yml
+          echo "clean-targets:" >> dbt_project.yml
+          echo "  - target" >> dbt_project.yml
+          echo "  - dbt_modules" >> dbt_project.yml
+
       - name: Run DBT models
-        shell: pwsh
+        shell: bash
         run: |
           dbt run --select dbt_artifacts
 
       - name: Generate DBT docs
-        shell: pwsh
+        shell: bash
         run: |
           dbt docs generate
-
