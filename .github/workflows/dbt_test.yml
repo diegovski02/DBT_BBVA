@@ -48,10 +48,12 @@ jobs:
 
       - name: Run DBT models
         shell: bash
+        working-directory: ./
         run: |
           dbt run --select dbt_artifacts
 
       - name: Generate DBT docs
         shell: bash
+        working-directory: ./
         run: |
           dbt docs generate
