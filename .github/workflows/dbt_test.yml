@@ -30,16 +30,6 @@ jobs:
           mkdir -p ~/.dbt
           printf "bbva_analysis:\n  target: dev\n  outputs:\n    dev:\n      type: sqlserver\n      driver: 'ODBC Driver 17 for SQL Server'\n      server: 'LAPTOP-21K41U8Q'\n      database: 'TR_BI_BBVA'\n      schema: 'dbo'\n      windows_login: true\n      encrypt: true\n      trust_cert: true\n      threads: 1\n" > ~/.dbt/profiles.yml
 
-      - name: Validar conexión DBT (dbt debug)
-        working-directory: ./bbva_analysis
-        run: |
-          dbt debug --profiles-dir ~/.dbt
-
-      - name: Run DBT models
-        working-directory: ./bbva_analysis
-        run: |
-          dbt run --profiles-dir ~/.dbt
-
       - name: Generate DBT docs
         working-directory: ./bbva_analysis
         run: |
