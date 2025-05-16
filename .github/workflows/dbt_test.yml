@@ -1,52 +1,69 @@
 name: CI-Test
 
-# Activar el flujo de trabajo en eventos de push o pull request a la rama main
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch: # Permite ejecutar manualmente desde la interfaz de GitHub Actions
+  workflow_dispatch:
 
 jobs:
-  # Este trabajo ejecutará la configuración para generar la documentación de DBT
   build:
-    runs-on: ubuntu-latest # El entorno en el que se ejecutarán los pasos
+    runs-on: windows-latest  # Runner Windows para Windows 11
 
     steps:
-      # Checkout del repositorio para acceder al código
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Instalar Python
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.11'
 
-      # Instalar dependencias de DBT
       - name: Install DBT and dependencies
+        shell: pwsh
         run: |
           python -m pip install --upgrade pip
           pip install dbt
           dbt deps
 
-      # Configurar el archivo profiles.yml para DBT (conexión a la base de datos)
       - name: Set up DBT profiles
+        shell: pwsh
         run: |
-          dbt run --select dbt_artifacts
-      # Ejecutar DBT models (esto genera el modelo de datos)
+          # Crea carpeta .dbt y configura profiles.yml (ajusta contenido a tu configuración)
+          New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.dbt
+          $profileContent = @"
+          bbva_analysis:
+            outputs:
+              dev:
+                type: sqlserver
+                driver: 'ODBC Driver 17 for SQL Server'
+                server: 'LAPTOP-21K41U8Q'
+                database: 'TR_BI_BBVA'
+                schema: 'dbo'
+                windows_login: true
+                encrypt: False
+                trust_cert: True
+                threads: 1
+            target: dev
+          "@
+          $profileContent | Out-File -FilePath $env:USERPROFILE\.dbt\profiles.yml -Encoding ascii
+
       - name: Run DBT models
+        shell: pwsh
+        working-directory: ./  # Si tu dbt_project.yml está en la raíz; cambia si está en otra carpeta
         run: |
           dbt run --select dbt_artifacts
 
-      # Generar la documentación de DBT
       - name: Generate DBT docs
+        shell: pwsh
+        working-directory: ./
         run: |
           dbt docs generate
 
-      # Servir la documentación de DBT
       - name: Serve DBT docs
+        shell: pwsh
+        working-directory: ./
         run: |
-          dbt docs serve &
-          sleep 5
+          Start-Process -NoNewWindow -FilePath "dbt" -ArgumentList "docs serve" 
+          Start-Sleep -Seconds 5
