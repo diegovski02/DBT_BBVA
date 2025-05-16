@@ -29,26 +29,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install dbt
-          pip install dbt-artifacts
+          dbt deps
 
       # Configurar el archivo profiles.yml para DBT (conexión a la base de datos)
       - name: Set up DBT profiles
         run: |
-          mkdir -p ~/.dbt
-          echo "profiles.yml contenido aquí" > ~/.dbt/profiles.yml  # Aquí va la configuración de tu perfil DBT
-
+          dbt run --select dbt_artifacts
       # Ejecutar DBT models (esto genera el modelo de datos)
       - name: Run DBT models
         run: |
-          dbt run --select dbt_artifacts  # Ejecuta los modelos y artefactos de DBT
+          dbt run --select dbt_artifacts
 
       # Generar la documentación de DBT
       - name: Generate DBT docs
         run: |
-          dbt docs generate  # Genera la documentación
+          dbt docs generate
 
       # Servir la documentación de DBT
       - name: Serve DBT docs
         run: |
-          dbt docs serve &  # Inicia el servidor de documentación
-          sleep 5  # Espera 5 segundos para asegurarse de que el servidor está funcionando
+          dbt docs serve &
+          sleep 5
