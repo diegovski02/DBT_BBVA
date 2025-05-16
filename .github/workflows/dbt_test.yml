@@ -1,0 +1,61 @@
+name: CI-Test
+
+# Activar el flujo de trabajo en eventos de push o pull request a la rama main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # Permite ejecutar manualmente desde la interfaz de GitHub Actions
+
+jobs:
+  # Este trabajo ejecutará la configuración para generar la documentación de DBT
+  build:
+    runs-on: ubuntu-latest # El entorno en el que se ejecutarán los pasos
+
+    steps:
+      # Checkout del repositorio para acceder al código
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Instalar Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      # Instalar dependencias de DBT
+      - name: Install DBT and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install dbt
+          pip install dbt-artifacts
+
+      # Configurar el archivo profiles.yml para DBT (conexión a la base de datos)
+      - name: Set up DBT profiles
+        run: |
+          mkdir -p ~/.dbt
+          echo "profiles.yml contenido aquí" > ~/.dbt/profiles.yml  # Aquí va la configuración de tu perfil DBT
+
+      # Ejecutar DBT models (esto genera el modelo de datos)
+      - name: Run DBT models
+        run: |
+          dbt run --select dbt_artifacts  # Ejecuta los modelos y artefactos de DBT
+
+      # Generar la documentación de DBT
+      - name: Generate DBT docs
+        run: |
+          dbt docs generate  # Genera la documentación
+
+      # Servir la documentación de DBT
+      - name: Serve DBT docs
+        run: |
+          dbt docs serve &  # Inicia el servidor de documentación
+          sleep 5  # Espera 5 segundos para asegurarse de que el servidor está funcionando
+
+      # (Opcional) Subir los artefactos o logs de los resultados generados
+      - name: Upload DBT Docs as Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dbt-docs
+          path: target  # Subir el directorio target que contiene los artefactos generados
