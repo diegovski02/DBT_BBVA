@@ -26,25 +26,11 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install dbt-sqlserver
 
-      - name: Configure profiles.yml for DBT
+      - name: Copy profiles.yml to ~/.dbt
         shell: bash
         run: |
           mkdir -p ~/.dbt
-          cat <<EOF > ~/.dbt/profiles.yml
-          bbva_analysis:
-            target: dev
-            outputs:
-              dev:
-                type: sqlserver
-                driver: 'ODBC Driver 17 for SQL Server'
-                server: 'LAPTOP-21K41U8Q'
-                database: 'TR_BI_BBVA'
-                schema: dbo
-                windows_login: true
-                encrypt: true
-                trust_cert: false
-                threads: 1
-          EOF
+          cp .dbt/profiles.yml ~/.dbt/profiles.yml
 
       - name: Run DBT models
         shell: bash
