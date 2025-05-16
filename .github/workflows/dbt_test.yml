@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python 3.11
@@ -26,19 +26,24 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install dbt-sqlserver
 
-      - name: Create basic dbt_project.yml
+      - name: Configure profiles.yml for DBT
         shell: bash
         run: |
-          cat <<EOF > dbt_project.yml
-          name: 'ci_test_project'
-          version: '1.0'
-          config-version: 2
-          profile: 'default'
-          model-paths: ["models"]
-          target-path: "target"
-          clean-targets:
-            - target
-            - dbt_modules
+          mkdir -p ~/.dbt
+          cat <<EOF > ~/.dbt/profiles.yml
+          bbva_analysis:
+            target: dev
+            outputs:
+              dev:
+                type: sqlserver
+                driver: 'ODBC Driver 17 for SQL Server'
+                server: 'LAPTOP-21K41U8Q'
+                database: 'TR_BI_BBVA'
+                schema: dbo
+                windows_login: true
+                encrypt: true
+                trust_cert: false
+                threads: 1
           EOF
 
       - name: Run DBT models
