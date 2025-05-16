@@ -27,31 +27,9 @@ jobs:
           pip install dbt
           dbt deps
 
-      - name: Set up DBT profiles
-        shell: pwsh
-        run: |
-          # Crea carpeta .dbt y configura profiles.yml (ajusta contenido a tu configuración)
-          New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.dbt
-          $profileContent = @"
-          bbva_analysis:
-            outputs:
-              dev:
-                type: sqlserver
-                driver: 'ODBC Driver 17 for SQL Server'
-                server: 'LAPTOP-21K41U8Q'
-                database: 'TR_BI_BBVA'
-                schema: 'dbo'
-                windows_login: true
-                encrypt: False
-                trust_cert: True
-                threads: 1
-            target: dev
-          "@
-          $profileContent | Out-File -FilePath $env:USERPROFILE\.dbt\profiles.yml -Encoding ascii
-
       - name: Run DBT models
         shell: pwsh
-        working-directory: ./  # Si tu dbt_project.yml está en la raíz; cambia si está en otra carpeta
+        working-directory: ./
         run: |
           dbt run --select dbt_artifacts
 
