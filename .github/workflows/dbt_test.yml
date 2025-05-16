@@ -36,11 +36,3 @@ jobs:
         shell: pwsh
         run: |
           dbt docs generate
-
-      # Opcional: subir los docs generados como artefacto para descargarlos después
-      - name: Upload DBT Docs artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dbt-docs
-          path: target/catalog.json # o la carpeta target completa si quieres
-
