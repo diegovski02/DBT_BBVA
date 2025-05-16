@@ -48,12 +48,12 @@ jobs:
 
       - name: Run DBT models
         shell: bash
-        working-directory: ./
+        working-directory: ./bbva_analysis
         run: |
           dbt run
 
       - name: Generate DBT docs
         shell: bash
-        working-directory: ./
+        working-directory: ./bbva_analysis
         run: |
           dbt docs generate
