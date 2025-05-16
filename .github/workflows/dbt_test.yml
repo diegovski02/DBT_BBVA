@@ -20,25 +20,26 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install DBT and dependencies
+      - name: Install DBT SQL Server adapter and dependencies
         shell: bash
         run: |
-          python -m pip install --upgrade pip
-          pip install dbt
-          dbt deps
+          python -m pip install --upgrade pip setuptools wheel
+          pip install dbt-sqlserver
 
       - name: Create basic dbt_project.yml
         shell: bash
         run: |
-          echo "name: 'ci_test_project'" > dbt_project.yml
-          echo "version: '1.0'" >> dbt_project.yml
-          echo "config-version: 2" >> dbt_project.yml
-          echo "profile: 'default'" >> dbt_project.yml
-          echo "model-paths: [\"models\"]" >> dbt_project.yml
-          echo "target-path: \"target\"" >> dbt_project.yml
-          echo "clean-targets:" >> dbt_project.yml
-          echo "  - target" >> dbt_project.yml
-          echo "  - dbt_modules" >> dbt_project.yml
+          cat <<EOF > dbt_project.yml
+          name: 'ci_test_project'
+          version: '1.0'
+          config-version: 2
+          profile: 'default'
+          model-paths: ["models"]
+          target-path: "target"
+          clean-targets:
+            - target
+            - dbt_modules
+          EOF
 
       - name: Run DBT models
         shell: bash
