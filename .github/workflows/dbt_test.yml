@@ -29,19 +29,18 @@ jobs:
 
       - name: Run DBT models
         shell: pwsh
-        working-directory: ./
         run: |
           dbt run --select dbt_artifacts
 
       - name: Generate DBT docs
         shell: pwsh
-        working-directory: ./
         run: |
           dbt docs generate
 
-      - name: Serve DBT docs
-        shell: pwsh
-        working-directory: ./
-        run: |
-          Start-Process -NoNewWindow -FilePath "dbt" -ArgumentList "docs serve" 
-          Start-Sleep -Seconds 5
+      # Opcional: subir los docs generados como artefacto para descargarlos después
+      - name: Upload DBT Docs artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dbt-docs
+          path: target/catalog.json # o la carpeta target completa si quieres
+
