@@ -52,10 +52,3 @@ jobs:
         run: |
           dbt docs serve &  # Inicia el servidor de documentación
           sleep 5  # Espera 5 segundos para asegurarse de que el servidor está funcionando
-
-      # (Opcional) Subir los artefactos o logs de los resultados generados
-      - name: Upload DBT Docs as Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: dbt-docs
-          path: target  # Subir el directorio target que contiene los artefactos generados
