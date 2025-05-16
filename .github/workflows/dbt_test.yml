@@ -55,7 +55,7 @@ jobs:
 
       # (Opcional) Subir los artefactos o logs de los resultados generados
       - name: Upload DBT Docs as Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: dbt-docs
           path: target  # Subir el directorio target que contiene los artefactos generados
