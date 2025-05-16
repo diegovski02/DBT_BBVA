@@ -50,7 +50,7 @@ jobs:
         shell: bash
         working-directory: ./
         run: |
-          dbt run --select dbt_artifacts
+          dbt run
 
       - name: Generate DBT docs
         shell: bash
