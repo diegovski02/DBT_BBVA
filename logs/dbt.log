@@ -49011,3 +49011,1186 @@ Update your versions in packages.yml, then run dbt deps
 [0m15:20:09.998577 [debug] [MainThread]: Command `cli deps` succeeded at 15:20:09.998577 after 3.17 seconds
 [0m15:20:09.998577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023504C5C6D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002357E5DCA50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023504C04C50>]}
 [0m15:20:09.999588 [debug] [MainThread]: Flushing usage events
+[0m16:15:29.377260 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D1338310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D1339F10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D1338F50>]}
+
+
+============================== 16:15:29.380260 | 49a83f43-fec8-4211-a091-5a1785444bf7 ==============================
+[0m16:15:29.380260 [info ] [MainThread]: Running with dbt=1.8.0
+[0m16:15:29.381264 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'D:\\REPOS\\DBT_BBVA', 'log_path': 'D:\\REPOS\\DBT_BBVA\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt docs generate', 'send_anonymous_usage_stats': 'True'}
+[0m16:15:32.667692 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D0D48D50>]}
+[0m16:15:32.706691 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224CFF78B10>]}
+[0m16:15:32.707693 [info ] [MainThread]: Registered adapter: sqlserver=1.8.7
+[0m16:15:33.165480 [debug] [MainThread]: checksum: dbb12d416fdb55e3665e4828703bbedf40c5c90ed7ca6ff39bbbfb29b12b0a92, vars: {}, profile: , target: , version: 1.8.0
+[0m16:15:35.995518 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:15:35.996517 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:15:36.002619 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.bbva_analysis.raw
+[0m16:15:36.040578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D2DA7AD0>]}
+[0m16:15:36.069199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D2EA5450>]}
+[0m16:15:36.070196 [info ] [MainThread]: Found 27 models, 31 data tests, 7 sources, 739 macros
+[0m16:15:36.071202 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D3042590>]}
+[0m16:15:36.074196 [info ] [MainThread]: 
+[0m16:15:36.074196 [debug] [MainThread]: Acquiring new sqlserver connection 'master'
+[0m16:15:36.081195 [debug] [ThreadPool]: Acquiring new sqlserver connection 'list_STG_BBVA_stg'
+[0m16:15:36.098121 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:36.099154 [debug] [ThreadPool]: Using sqlserver connection "list_STG_BBVA_stg"
+[0m16:15:36.099154 [debug] [ThreadPool]: On list_STG_BBVA_stg: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "list_STG_BBVA_stg"} */
+USE [STG_BBVA];
+    with base as (
+      select
+        DB_NAME() as [database],
+        t.name as [name],
+        SCHEMA_NAME(t.schema_id) as [schema],
+        'table' as table_type
+      from sys.tables as t with (nolock)
+      union all
+      select
+        DB_NAME() as [database],
+        v.name as [name],
+        SCHEMA_NAME(v.schema_id) as [schema],
+        'view' as table_type
+      from sys.views as v with (nolock)
+    )
+    select * from base
+    where [schema] like 'stg'
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m16:15:36.099154 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:15:36.100158 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:36.221238 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:36.298756 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:36.300753 [debug] [ThreadPool]: On list_STG_BBVA_stg: ROLLBACK
+[0m16:15:36.300753 [debug] [ThreadPool]: On list_STG_BBVA_stg: Close
+[0m16:15:36.302080 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_STG_BBVA_stg, now list_MASTER_BBVA_DW)
+[0m16:15:36.305077 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:36.306084 [debug] [ThreadPool]: Using sqlserver connection "list_MASTER_BBVA_DW"
+[0m16:15:36.306084 [debug] [ThreadPool]: On list_MASTER_BBVA_DW: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "list_MASTER_BBVA_DW"} */
+USE [MASTER_BBVA];
+    with base as (
+      select
+        DB_NAME() as [database],
+        t.name as [name],
+        SCHEMA_NAME(t.schema_id) as [schema],
+        'table' as table_type
+      from sys.tables as t with (nolock)
+      union all
+      select
+        DB_NAME() as [database],
+        v.name as [name],
+        SCHEMA_NAME(v.schema_id) as [schema],
+        'view' as table_type
+      from sys.views as v with (nolock)
+    )
+    select * from base
+    where [schema] like 'DW'
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m16:15:36.306084 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:15:36.307077 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:36.307077 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:36.366774 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:36.368777 [debug] [ThreadPool]: On list_MASTER_BBVA_DW: ROLLBACK
+[0m16:15:36.369776 [debug] [ThreadPool]: On list_MASTER_BBVA_DW: Close
+[0m16:15:36.369776 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_MASTER_BBVA_DW, now list_DBT_ARTIFACTS_artifacts)
+[0m16:15:36.374183 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:36.375183 [debug] [ThreadPool]: Using sqlserver connection "list_DBT_ARTIFACTS_artifacts"
+[0m16:15:36.376183 [debug] [ThreadPool]: On list_DBT_ARTIFACTS_artifacts: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "list_DBT_ARTIFACTS_artifacts"} */
+USE [DBT_ARTIFACTS];
+    with base as (
+      select
+        DB_NAME() as [database],
+        t.name as [name],
+        SCHEMA_NAME(t.schema_id) as [schema],
+        'table' as table_type
+      from sys.tables as t with (nolock)
+      union all
+      select
+        DB_NAME() as [database],
+        v.name as [name],
+        SCHEMA_NAME(v.schema_id) as [schema],
+        'view' as table_type
+      from sys.views as v with (nolock)
+    )
+    select * from base
+    where [schema] like 'artifacts'
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m16:15:36.376183 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:15:36.377269 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:36.377269 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:36.440538 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:36.442554 [debug] [ThreadPool]: On list_DBT_ARTIFACTS_artifacts: ROLLBACK
+[0m16:15:36.442554 [debug] [ThreadPool]: On list_DBT_ARTIFACTS_artifacts: Close
+[0m16:15:36.444812 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '49a83f43-fec8-4211-a091-5a1785444bf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D075D8D0>]}
+[0m16:15:36.444812 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m16:15:36.445811 [info ] [MainThread]: 
+[0m16:15:36.450086 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_balances
+[0m16:15:36.450086 [debug] [Thread-1 (]: Acquiring new sqlserver connection 'model.bbva_analysis.stg_balances'
+[0m16:15:36.451269 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_balances
+[0m16:15:36.459380 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_balances"
+[0m16:15:36.460472 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_balances
+[0m16:15:36.460472 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_balances
+[0m16:15:36.461485 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_customers
+[0m16:15:36.462481 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_balances, now model.bbva_analysis.stg_customers)
+[0m16:15:36.462481 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_customers
+[0m16:15:36.521104 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_customers"
+[0m16:15:36.522111 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_customers
+[0m16:15:36.522111 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_customers
+[0m16:15:36.523303 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_digital_activity
+[0m16:15:36.524314 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_customers, now model.bbva_analysis.stg_digital_activity)
+[0m16:15:36.524314 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_digital_activity
+[0m16:15:36.527314 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_digital_activity"
+[0m16:15:36.528315 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_digital_activity
+[0m16:15:36.528315 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_digital_activity
+[0m16:15:36.529314 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_liabilities
+[0m16:15:36.529314 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_digital_activity, now model.bbva_analysis.stg_liabilities)
+[0m16:15:36.529314 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_liabilities
+[0m16:15:36.532314 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_liabilities"
+[0m16:15:36.533315 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_liabilities
+[0m16:15:36.534315 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_liabilities
+[0m16:15:36.534315 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_movements
+[0m16:15:36.535315 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_liabilities, now model.bbva_analysis.stg_movements)
+[0m16:15:36.535315 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_movements
+[0m16:15:36.538786 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_movements"
+[0m16:15:36.538786 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_movements
+[0m16:15:36.539786 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_movements
+[0m16:15:36.540786 [debug] [Thread-1 (]: Began running node model.bbva_analysis.stg_sample_submission
+[0m16:15:36.540786 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_movements, now model.bbva_analysis.stg_sample_submission)
+[0m16:15:36.540786 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.stg_sample_submission
+[0m16:15:36.543786 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.stg_sample_submission"
+[0m16:15:36.544786 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.stg_sample_submission
+[0m16:15:36.545786 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.stg_sample_submission
+[0m16:15:36.545786 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__artifacts
+[0m16:15:36.546786 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.stg_sample_submission, now model.dbt_artifacts.stg_dbt__artifacts)
+[0m16:15:36.546786 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__artifacts
+[0m16:15:36.549787 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__artifacts"
+[0m16:15:36.549787 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__artifacts
+[0m16:15:36.550786 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__artifacts
+[0m16:15:36.551787 [debug] [Thread-1 (]: Began running node model.bbva_analysis.dim_customer
+[0m16:15:36.552789 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__artifacts, now model.bbva_analysis.dim_customer)
+[0m16:15:36.553786 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.dim_customer
+[0m16:15:36.555785 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.dim_customer"
+[0m16:15:36.556787 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.dim_customer
+[0m16:15:36.557787 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.dim_customer
+[0m16:15:36.557787 [debug] [Thread-1 (]: Began running node model.bbva_analysis.dim_tiempo
+[0m16:15:36.558787 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.dim_customer, now model.bbva_analysis.dim_tiempo)
+[0m16:15:36.558787 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.dim_tiempo
+[0m16:15:36.561821 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.dim_tiempo"
+[0m16:15:36.563036 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.dim_tiempo
+[0m16:15:36.563036 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.dim_tiempo
+[0m16:15:36.564036 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__exposures
+[0m16:15:36.564036 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.dim_tiempo, now model.dbt_artifacts.stg_dbt__exposures)
+[0m16:15:36.565288 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__exposures
+[0m16:15:36.579424 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__exposures"
+[0m16:15:36.580424 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__exposures
+[0m16:15:36.580424 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__exposures
+[0m16:15:36.581425 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__model_executions
+[0m16:15:36.581425 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__exposures, now model.dbt_artifacts.stg_dbt__model_executions)
+[0m16:15:36.582429 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__model_executions
+[0m16:15:36.586797 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__model_executions"
+[0m16:15:36.586797 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__model_executions
+[0m16:15:36.587799 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__model_executions
+[0m16:15:36.587799 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__models
+[0m16:15:36.588800 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__model_executions, now model.dbt_artifacts.stg_dbt__models)
+[0m16:15:36.588800 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__models
+[0m16:15:36.592950 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__models"
+[0m16:15:36.593950 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__models
+[0m16:15:36.594950 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__models
+[0m16:15:36.594950 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__run_results
+[0m16:15:36.595950 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__models, now model.dbt_artifacts.stg_dbt__run_results)
+[0m16:15:36.595950 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__run_results
+[0m16:15:36.599182 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__run_results"
+[0m16:15:36.599182 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__run_results
+[0m16:15:36.600643 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__run_results
+[0m16:15:36.600643 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__run_results_env_keys
+[0m16:15:36.601640 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__run_results, now model.dbt_artifacts.stg_dbt__run_results_env_keys)
+[0m16:15:36.601640 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__run_results_env_keys
+[0m16:15:36.604803 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__run_results_env_keys"
+[0m16:15:36.605799 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__run_results_env_keys
+[0m16:15:36.606825 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__run_results_env_keys
+[0m16:15:36.606825 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__sources
+[0m16:15:36.606825 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__run_results_env_keys, now model.dbt_artifacts.stg_dbt__sources)
+[0m16:15:36.608126 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__sources
+[0m16:15:36.612335 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__sources"
+[0m16:15:36.613334 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__sources
+[0m16:15:36.613334 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__sources
+[0m16:15:36.614452 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.stg_dbt__test_executions
+[0m16:15:36.614452 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__sources, now model.dbt_artifacts.stg_dbt__test_executions)
+[0m16:15:36.615569 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.stg_dbt__test_executions
+[0m16:15:36.619635 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.stg_dbt__test_executions"
+[0m16:15:36.620644 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.stg_dbt__test_executions
+[0m16:15:36.620644 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.stg_dbt__test_executions
+[0m16:15:36.621647 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_ID.206d444459
+[0m16:15:36.622645 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.stg_dbt__test_executions, now test.bbva_analysis.not_null_dim_customer_ID.206d444459)
+[0m16:15:36.622645 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_ID.206d444459
+[0m16:15:36.633239 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_ID.206d444459"
+[0m16:15:36.634253 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_ID.206d444459
+[0m16:15:36.635258 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_ID.206d444459
+[0m16:15:36.635258 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f
+[0m16:15:36.636254 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_ID.206d444459, now test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f)
+[0m16:15:36.636254 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f
+[0m16:15:36.639415 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f"
+[0m16:15:36.640409 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f
+[0m16:15:36.641662 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f
+[0m16:15:36.641662 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c
+[0m16:15:36.641662 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_customer_key.c289fe4d1f, now test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c)
+[0m16:15:36.642941 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c
+[0m16:15:36.645941 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c"
+[0m16:15:36.646942 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c
+[0m16:15:36.647942 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c
+[0m16:15:36.647942 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a
+[0m16:15:36.648942 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_ofert_1.b54f425b4c, now test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a)
+[0m16:15:36.648942 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a
+[0m16:15:36.652942 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a"
+[0m16:15:36.653946 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a
+[0m16:15:36.653946 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a
+[0m16:15:36.653946 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba
+[0m16:15:36.655222 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_ofert_2.6247fcd68a, now test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba)
+[0m16:15:36.655222 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba
+[0m16:15:36.659806 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba"
+[0m16:15:36.659806 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba
+[0m16:15:36.661131 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba
+[0m16:15:36.661131 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff
+[0m16:15:36.661131 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_ofert_3.b77e93fcba, now test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff)
+[0m16:15:36.662173 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff
+[0m16:15:36.665685 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff"
+[0m16:15:36.666684 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff
+[0m16:15:36.667692 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff
+[0m16:15:36.667692 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_product_2.7232232a54
+[0m16:15:36.667692 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_product_1.45c72757ff, now test.bbva_analysis.not_null_dim_customer_product_2.7232232a54)
+[0m16:15:36.668688 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_product_2.7232232a54
+[0m16:15:36.671687 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_product_2.7232232a54"
+[0m16:15:36.672685 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_product_2.7232232a54
+[0m16:15:36.673686 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_product_2.7232232a54
+[0m16:15:36.673686 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70
+[0m16:15:36.673686 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_product_2.7232232a54, now test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70)
+[0m16:15:36.673686 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70
+[0m16:15:36.678188 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70"
+[0m16:15:36.678188 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70
+[0m16:15:36.679191 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70
+[0m16:15:36.679191 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff
+[0m16:15:36.680190 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_product_3.5bdbc02f70, now test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff)
+[0m16:15:36.680190 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff
+[0m16:15:36.688197 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff"
+[0m16:15:36.689186 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff
+[0m16:15:36.690188 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff
+[0m16:15:36.691189 [debug] [Thread-1 (]: Began running node test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e
+[0m16:15:36.692189 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_customer_product_4.e0c71ff8ff, now test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e)
+[0m16:15:36.692189 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e
+[0m16:15:36.698188 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e"
+[0m16:15:36.698188 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e
+[0m16:15:36.699193 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e
+[0m16:15:36.699193 [debug] [Thread-1 (]: Began running node model.bbva_analysis.fact_customer_period
+[0m16:15:36.700188 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.unique_dim_customer_customer_key.7b0683cc6e, now model.bbva_analysis.fact_customer_period)
+[0m16:15:36.700188 [debug] [Thread-1 (]: Began compiling node model.bbva_analysis.fact_customer_period
+[0m16:15:36.704450 [debug] [Thread-1 (]: Writing injected SQL for node "model.bbva_analysis.fact_customer_period"
+[0m16:15:36.705450 [debug] [Thread-1 (]: Began executing node model.bbva_analysis.fact_customer_period
+[0m16:15:36.705450 [debug] [Thread-1 (]: Finished running node model.bbva_analysis.fact_customer_period
+[0m16:15:36.706496 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd
+[0m16:15:36.706496 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bbva_analysis.fact_customer_period, now test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd)
+[0m16:15:36.707623 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd
+[0m16:15:36.711758 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd"
+[0m16:15:36.711758 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd
+[0m16:15:36.712759 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd
+[0m16:15:36.713757 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224
+[0m16:15:36.713757 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_tiempo_PeriodKey.aafa528efd, now test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224)
+[0m16:15:36.714756 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224
+[0m16:15:36.718863 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224"
+[0m16:15:36.719868 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224
+[0m16:15:36.719868 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224
+[0m16:15:36.720865 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5
+[0m16:15:36.721864 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_tiempo_month.ce48b83224, now test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5)
+[0m16:15:36.721864 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5
+[0m16:15:36.725863 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5"
+[0m16:15:36.726862 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5
+[0m16:15:36.726862 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5
+[0m16:15:36.727862 [debug] [Thread-1 (]: Began running node test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a
+[0m16:15:36.727862 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_dim_tiempo_period_code.6c5d2296f5, now test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a)
+[0m16:15:36.728865 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a
+[0m16:15:36.732862 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a"
+[0m16:15:36.732862 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a
+[0m16:15:36.733867 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a
+[0m16:15:36.733867 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.dim_dbt__exposures
+[0m16:15:36.734865 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.unique_dim_tiempo_PeriodKey.0dbc69a93a, now model.dbt_artifacts.dim_dbt__exposures)
+[0m16:15:36.734865 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.dim_dbt__exposures
+[0m16:15:36.741224 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.dim_dbt__exposures"
+[0m16:15:36.742224 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.dim_dbt__exposures
+[0m16:15:36.742224 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.dim_dbt__exposures
+[0m16:15:36.743231 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.int_dbt__model_executions
+[0m16:15:36.743231 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.dim_dbt__exposures, now model.dbt_artifacts.int_dbt__model_executions)
+[0m16:15:36.744247 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.int_dbt__model_executions
+[0m16:15:36.747249 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.int_dbt__model_executions"
+[0m16:15:36.748247 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.int_dbt__model_executions
+[0m16:15:36.748247 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.int_dbt__model_executions
+[0m16:15:36.749253 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.dim_dbt__models
+[0m16:15:36.749253 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.int_dbt__model_executions, now model.dbt_artifacts.dim_dbt__models)
+[0m16:15:36.750397 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.dim_dbt__models
+[0m16:15:36.754779 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.dim_dbt__models"
+[0m16:15:36.755777 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.dim_dbt__models
+[0m16:15:36.756779 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.dim_dbt__models
+[0m16:15:36.756779 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__run_results
+[0m16:15:36.757778 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.dim_dbt__models, now model.dbt_artifacts.fct_dbt__run_results)
+[0m16:15:36.758775 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__run_results
+[0m16:15:36.773748 [debug] [Thread-1 (]: Relation "DBT_ARTIFACTS"."artifacts"."stg_dbt__run_results_env_keys" does not exist. Returning the default value: []
+[0m16:15:36.774747 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__run_results"
+[0m16:15:36.775748 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__run_results
+[0m16:15:36.775748 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__run_results
+[0m16:15:36.776747 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.dim_dbt__sources
+[0m16:15:36.776747 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__run_results, now model.dbt_artifacts.dim_dbt__sources)
+[0m16:15:36.777748 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.dim_dbt__sources
+[0m16:15:36.780748 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.dim_dbt__sources"
+[0m16:15:36.781748 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.dim_dbt__sources
+[0m16:15:36.781748 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.dim_dbt__sources
+[0m16:15:36.782748 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__test_executions
+[0m16:15:36.782748 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.dim_dbt__sources, now model.dbt_artifacts.fct_dbt__test_executions)
+[0m16:15:36.783748 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__test_executions
+[0m16:15:36.786747 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__test_executions"
+[0m16:15:36.787747 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__test_executions
+[0m16:15:36.788747 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__test_executions
+[0m16:15:36.788747 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c
+[0m16:15:36.789748 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__test_executions, now test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c)
+[0m16:15:36.789748 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c
+[0m16:15:36.793747 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c"
+[0m16:15:36.793747 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c
+[0m16:15:36.794748 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c
+[0m16:15:36.795747 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010
+[0m16:15:36.795747 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_fact_customer_period_customer_key.f2f382ae5c, now test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010)
+[0m16:15:36.795747 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010
+[0m16:15:36.799748 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010"
+[0m16:15:36.800749 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010
+[0m16:15:36.801748 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010
+[0m16:15:36.802748 [debug] [Thread-1 (]: Began running node test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065
+[0m16:15:36.802748 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_fact_customer_period_period_key.3fa1d9b010, now test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065)
+[0m16:15:36.803747 [debug] [Thread-1 (]: Began compiling node test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065
+[0m16:15:36.806747 [debug] [Thread-1 (]: Writing injected SQL for node "test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065"
+[0m16:15:36.807748 [debug] [Thread-1 (]: Began executing node test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065
+[0m16:15:36.808748 [debug] [Thread-1 (]: Finished running node test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065
+[0m16:15:36.808748 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94
+[0m16:15:36.809748 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.bbva_analysis.not_null_fact_customer_period_target.c6beb3d065, now test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94)
+[0m16:15:36.809748 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94
+[0m16:15:36.815833 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94"
+[0m16:15:36.816834 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94
+[0m16:15:36.816834 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94
+[0m16:15:36.817833 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44
+[0m16:15:36.817833 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_dim_dbt__exposures_manifest_model_id.1cfdaa0c94, now test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44)
+[0m16:15:36.817833 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44
+[0m16:15:36.822830 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44"
+[0m16:15:36.822830 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44
+[0m16:15:36.823830 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44
+[0m16:15:36.824829 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__model_executions
+[0m16:15:36.824829 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_dim_dbt__exposures_manifest_model_id_output_feeds.b0bf30fb44, now model.dbt_artifacts.fct_dbt__model_executions)
+[0m16:15:36.824829 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__model_executions
+[0m16:15:36.828829 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__model_executions"
+[0m16:15:36.829829 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__model_executions
+[0m16:15:36.830775 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__model_executions
+[0m16:15:36.830775 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60
+[0m16:15:36.831800 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__model_executions, now test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60)
+[0m16:15:36.832319 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60
+[0m16:15:36.835989 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60"
+[0m16:15:36.836514 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60
+[0m16:15:36.837551 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60
+[0m16:15:36.837551 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e
+[0m16:15:36.838616 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_dim_dbt__models_manifest_model_id.df81d26c60, now test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e)
+[0m16:15:36.839142 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e
+[0m16:15:36.843314 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e"
+[0m16:15:36.844361 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e
+[0m16:15:36.844888 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e
+[0m16:15:36.845421 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935
+[0m16:15:36.845947 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_dim_dbt__models_manifest_model_id.c105319f3e, now test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935)
+[0m16:15:36.846470 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935
+[0m16:15:36.850138 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935"
+[0m16:15:36.851199 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935
+[0m16:15:36.851725 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935
+[0m16:15:36.852259 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3
+[0m16:15:36.852783 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_fct_dbt__run_results_command_invocation_id.11abc48935, now test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3)
+[0m16:15:36.852783 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3
+[0m16:15:36.856506 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3"
+[0m16:15:36.857549 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3
+[0m16:15:36.857549 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3
+[0m16:15:36.858556 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000
+[0m16:15:36.858556 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_fct_dbt__run_results_command_invocation_id.08941b96a3, now test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000)
+[0m16:15:36.858556 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000
+[0m16:15:36.862815 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000"
+[0m16:15:36.863815 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000
+[0m16:15:36.863815 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000
+[0m16:15:36.864815 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce
+[0m16:15:36.864815 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_dim_dbt__sources_manifest_source_id.34e9829000, now test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce)
+[0m16:15:36.864815 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce
+[0m16:15:36.868815 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce"
+[0m16:15:36.869815 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce
+[0m16:15:36.870819 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce
+[0m16:15:36.870819 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__exposures_updates
+[0m16:15:36.871821 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_dim_dbt__sources_manifest_source_id.a9a1a372ce, now model.dbt_artifacts.fct_dbt__exposures_updates)
+[0m16:15:36.871821 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__exposures_updates
+[0m16:15:36.876818 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__exposures_updates"
+[0m16:15:36.877819 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__exposures_updates
+[0m16:15:36.878818 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__exposures_updates
+[0m16:15:36.879815 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__latest_full_model_executions
+[0m16:15:36.879815 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__exposures_updates, now model.dbt_artifacts.fct_dbt__latest_full_model_executions)
+[0m16:15:36.879815 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__latest_full_model_executions
+[0m16:15:36.882153 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__latest_full_model_executions"
+[0m16:15:36.883619 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__latest_full_model_executions
+[0m16:15:36.883619 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__latest_full_model_executions
+[0m16:15:36.885081 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69
+[0m16:15:36.885081 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__latest_full_model_executions, now test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69)
+[0m16:15:36.885081 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69
+[0m16:15:36.889459 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69"
+[0m16:15:36.890464 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69
+[0m16:15:36.891465 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69
+[0m16:15:36.891465 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59
+[0m16:15:36.891465 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_fct_dbt__model_executions_model_execution_id.ecb7ddbb69, now test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59)
+[0m16:15:36.891465 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59
+[0m16:15:36.896464 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59"
+[0m16:15:36.896464 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59
+[0m16:15:36.897468 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59
+[0m16:15:36.897468 [debug] [Thread-1 (]: Began running node model.dbt_artifacts.fct_dbt__critical_path
+[0m16:15:36.898646 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_fct_dbt__model_executions_model_execution_id.ab9f314f59, now model.dbt_artifacts.fct_dbt__critical_path)
+[0m16:15:36.898646 [debug] [Thread-1 (]: Began compiling node model.dbt_artifacts.fct_dbt__critical_path
+[0m16:15:36.901707 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_artifacts.fct_dbt__critical_path"
+[0m16:15:36.902706 [debug] [Thread-1 (]: Began executing node model.dbt_artifacts.fct_dbt__critical_path
+[0m16:15:36.903709 [debug] [Thread-1 (]: Finished running node model.dbt_artifacts.fct_dbt__critical_path
+[0m16:15:36.903709 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66
+[0m16:15:36.904706 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_artifacts.fct_dbt__critical_path, now test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66)
+[0m16:15:36.905212 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66
+[0m16:15:36.908789 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66"
+[0m16:15:36.908789 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66
+[0m16:15:36.909788 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66
+[0m16:15:36.909788 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c
+[0m16:15:36.910791 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_fct_dbt__latest_full_model_executions_node_id.75b07a2f66, now test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c)
+[0m16:15:36.910791 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c
+[0m16:15:36.913788 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c"
+[0m16:15:36.914788 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c
+[0m16:15:36.915795 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c
+[0m16:15:36.915795 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496
+[0m16:15:36.916789 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.unique_fct_dbt__latest_full_model_executions_node_id.b6f2773b6c, now test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496)
+[0m16:15:36.916789 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496
+[0m16:15:36.920028 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496"
+[0m16:15:36.921029 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496
+[0m16:15:36.921029 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496
+[0m16:15:36.922377 [debug] [Thread-1 (]: Began running node test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10
+[0m16:15:36.922377 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dbt_artifacts.not_null_fct_dbt__critical_path_node_id.8a76d88496, now test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10)
+[0m16:15:36.922377 [debug] [Thread-1 (]: Began compiling node test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10
+[0m16:15:36.927747 [debug] [Thread-1 (]: Writing injected SQL for node "test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10"
+[0m16:15:36.928747 [debug] [Thread-1 (]: Began executing node test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10
+[0m16:15:36.929749 [debug] [Thread-1 (]: Finished running node test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10
+[0m16:15:36.930750 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:15:36.930750 [debug] [MainThread]: Connection 'list_DBT_ARTIFACTS_artifacts' was properly closed.
+[0m16:15:36.931799 [debug] [MainThread]: Connection 'test.dbt_artifacts.unique_fct_dbt__critical_path_node_id.a430b9cf10' was properly closed.
+[0m16:15:36.936813 [debug] [MainThread]: Command end result
+[0m16:15:37.351191 [debug] [MainThread]: Acquiring new sqlserver connection 'generate_catalog'
+[0m16:15:37.352190 [info ] [MainThread]: Building catalog
+[0m16:15:37.365190 [debug] [ThreadPool]: Acquiring new sqlserver connection 'STG_BBVA.information_schema'
+[0m16:15:37.373191 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:37.374191 [debug] [ThreadPool]: Using sqlserver connection "STG_BBVA.information_schema"
+[0m16:15:37.374191 [debug] [ThreadPool]: On STG_BBVA.information_schema: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "STG_BBVA.information_schema"} */
+with
+    principals as (
+        select
+            name as principal_name,
+            principal_id as principal_id
+        from
+            sys.database_principals with (nolock)
+    ),
+
+    schemas as (
+        select
+            name as schema_name,
+            schema_id as schema_id,
+            principal_id as principal_id
+        from
+            sys.schemas with (nolock)
+    ),
+
+    tables as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'BASE TABLE' as table_type
+        from
+            sys.tables with (nolock)
+    ),
+
+    tables_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(tables.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            tables
+        join schemas on tables.schema_id = schemas.schema_id
+    ),
+
+    views as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'VIEW' as table_type
+        from
+            sys.views with (nolock)
+    ),
+
+    views_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(views.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            views
+        join schemas on views.schema_id = schemas.schema_id
+    ),
+
+    tables_and_views as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            tables_with_metadata
+        join principals on tables_with_metadata.owner_principal_id = principals.principal_id
+        union all
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            views_with_metadata
+        join principals on views_with_metadata.owner_principal_id = principals.principal_id
+    ),
+
+    cols as (
+
+        select
+            c.object_id,
+            c.name as column_name,
+            c.column_id as column_index,
+            t.name as column_type
+        from sys.columns as c with (nolock)
+        left join sys.types as t on c.system_type_id = t.system_type_id
+    )
+
+    select
+        DB_NAME() as table_database,
+        tv.schema_name as table_schema,
+        tv.table_name,
+        tv.table_type,
+        null as table_comment,
+        tv.principal_name as table_owner,
+        cols.column_name,
+        cols.column_index,
+        cols.column_type,
+        null as column_comment
+    from tables_and_views tv
+    join cols on tv.object_id = cols.object_id
+    where (
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_customers')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_movements')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_liabilities')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_digital_activity')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_balances')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('stg')
+                    and upper(tv.table_name) = upper('stg_sample_submission')
+                )
+            )
+
+    order by column_index
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+[0m16:15:37.375568 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:15:37.375568 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:37.376568 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:37.504674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF1B650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF1A9D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF1AED0>]}
+
+
+============================== 16:15:37.507971 | adc0a9a8-18a6-414e-af55-21f25c13613b ==============================
+[0m16:15:37.507971 [info ] [MainThread]: Running with dbt=1.8.0
+[0m16:15:37.507971 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'd:\\REPOS\\DBT_BBVA', 'log_path': 'd:\\REPOS\\DBT_BBVA\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt ', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:15:37.569076 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:37.571071 [debug] [ThreadPool]: On STG_BBVA.information_schema: ROLLBACK
+[0m16:15:37.571071 [debug] [ThreadPool]: On STG_BBVA.information_schema: Close
+[0m16:15:37.572072 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly STG_BBVA.information_schema, now DBT_ARTIFACTS.information_schema)
+[0m16:15:37.574070 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:37.575071 [debug] [ThreadPool]: Using sqlserver connection "DBT_ARTIFACTS.information_schema"
+[0m16:15:37.575071 [debug] [ThreadPool]: On DBT_ARTIFACTS.information_schema: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "DBT_ARTIFACTS.information_schema"} */
+with
+    principals as (
+        select
+            name as principal_name,
+            principal_id as principal_id
+        from
+            sys.database_principals with (nolock)
+    ),
+
+    schemas as (
+        select
+            name as schema_name,
+            schema_id as schema_id,
+            principal_id as principal_id
+        from
+            sys.schemas with (nolock)
+    ),
+
+    tables as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'BASE TABLE' as table_type
+        from
+            sys.tables with (nolock)
+    ),
+
+    tables_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(tables.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            tables
+        join schemas on tables.schema_id = schemas.schema_id
+    ),
+
+    views as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'VIEW' as table_type
+        from
+            sys.views with (nolock)
+    ),
+
+    views_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(views.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            views
+        join schemas on views.schema_id = schemas.schema_id
+    ),
+
+    tables_and_views as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            tables_with_metadata
+        join principals on tables_with_metadata.owner_principal_id = principals.principal_id
+        union all
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            views_with_metadata
+        join principals on views_with_metadata.owner_principal_id = principals.principal_id
+    ),
+
+    cols as (
+
+        select
+            c.object_id,
+            c.name as column_name,
+            c.column_id as column_index,
+            t.name as column_type
+        from sys.columns as c with (nolock)
+        left join sys.types as t on c.system_type_id = t.system_type_id
+    )
+
+    select
+        DB_NAME() as table_database,
+        tv.schema_name as table_schema,
+        tv.table_name,
+        tv.table_type,
+        null as table_comment,
+        tv.principal_name as table_owner,
+        cols.column_name,
+        cols.column_index,
+        cols.column_type,
+        null as column_comment
+    from tables_and_views tv
+    join cols on tv.object_id = cols.object_id
+    where (
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('dim_dbt__sources')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__test_executions')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__sources')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__model_executions')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__run_results_env_keys')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__exposures_updates')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('dim_dbt__exposures')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__critical_path')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__test_executions')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__run_results')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__run_results')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__latest_full_model_executions')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__artifacts')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('dim_dbt__models')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('int_dbt__model_executions')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__models')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('stg_dbt__exposures')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('artifacts')
+                    and upper(tv.table_name) = upper('fct_dbt__model_executions')
+                )
+            )
+
+    order by column_index
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+[0m16:15:37.576071 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:15:37.576071 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:37.577071 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:37.603392 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'adc0a9a8-18a6-414e-af55-21f25c13613b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF4B390>]}
+[0m16:15:37.684331 [debug] [MainThread]: Set downloads directory='C:\Users\compu\AppData\Local\Temp\dbt-downloads-c3pxwz3c'
+[0m16:15:37.684331 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m16:15:37.740307 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:37.741309 [debug] [ThreadPool]: On DBT_ARTIFACTS.information_schema: ROLLBACK
+[0m16:15:37.741309 [debug] [ThreadPool]: On DBT_ARTIFACTS.information_schema: Close
+[0m16:15:37.742797 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly DBT_ARTIFACTS.information_schema, now TR_BI_BBVA.information_schema)
+[0m16:15:37.744789 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:37.745801 [debug] [ThreadPool]: Using sqlserver connection "TR_BI_BBVA.information_schema"
+[0m16:15:37.745801 [debug] [ThreadPool]: On TR_BI_BBVA.information_schema: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "TR_BI_BBVA.information_schema"} */
+with
+    principals as (
+        select
+            name as principal_name,
+            principal_id as principal_id
+        from
+            sys.database_principals with (nolock)
+    ),
+
+    schemas as (
+        select
+            name as schema_name,
+            schema_id as schema_id,
+            principal_id as principal_id
+        from
+            sys.schemas with (nolock)
+    ),
+
+    tables as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'BASE TABLE' as table_type
+        from
+            sys.tables with (nolock)
+    ),
+
+    tables_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(tables.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            tables
+        join schemas on tables.schema_id = schemas.schema_id
+    ),
+
+    views as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'VIEW' as table_type
+        from
+            sys.views with (nolock)
+    ),
+
+    views_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(views.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            views
+        join schemas on views.schema_id = schemas.schema_id
+    ),
+
+    tables_and_views as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            tables_with_metadata
+        join principals on tables_with_metadata.owner_principal_id = principals.principal_id
+        union all
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            views_with_metadata
+        join principals on views_with_metadata.owner_principal_id = principals.principal_id
+    ),
+
+    cols as (
+
+        select
+            c.object_id,
+            c.name as column_name,
+            c.column_id as column_index,
+            t.name as column_type
+        from sys.columns as c with (nolock)
+        left join sys.types as t on c.system_type_id = t.system_type_id
+    )
+
+    select
+        DB_NAME() as table_database,
+        tv.schema_name as table_schema,
+        tv.table_name,
+        tv.table_type,
+        null as table_comment,
+        tv.principal_name as table_owner,
+        cols.column_name,
+        cols.column_index,
+        cols.column_type,
+        null as column_comment
+    from tables_and_views tv
+    join cols on tv.object_id = cols.object_id
+    where (
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Customers')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Liabilities')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Digital_Activity')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Balances')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Movements')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbo')
+                    and upper(tv.table_name) = upper('Sample_Submission')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('dbt_artifacts')
+                    and upper(tv.table_name) = upper('artifacts')
+                )
+            )
+
+    order by column_index
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+[0m16:15:37.746790 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:15:37.746790 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:37.746790 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:37.880811 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:37.885812 [debug] [ThreadPool]: On TR_BI_BBVA.information_schema: ROLLBACK
+[0m16:15:37.886810 [debug] [ThreadPool]: On TR_BI_BBVA.information_schema: Close
+[0m16:15:37.886810 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly TR_BI_BBVA.information_schema, now MASTER_BBVA.information_schema)
+[0m16:15:37.889959 [debug] [ThreadPool]: dbt-sqlserver
+[0m16:15:37.890958 [debug] [ThreadPool]: Using sqlserver connection "MASTER_BBVA.information_schema"
+[0m16:15:37.890958 [debug] [ThreadPool]: On MASTER_BBVA.information_schema: /* {"app": "dbt", "dbt_version": "1.8.0", "profile_name": "bbva_analysis", "target_name": "dev", "connection_name": "MASTER_BBVA.information_schema"} */
+with
+    principals as (
+        select
+            name as principal_name,
+            principal_id as principal_id
+        from
+            sys.database_principals with (nolock)
+    ),
+
+    schemas as (
+        select
+            name as schema_name,
+            schema_id as schema_id,
+            principal_id as principal_id
+        from
+            sys.schemas with (nolock)
+    ),
+
+    tables as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'BASE TABLE' as table_type
+        from
+            sys.tables with (nolock)
+    ),
+
+    tables_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(tables.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            tables
+        join schemas on tables.schema_id = schemas.schema_id
+    ),
+
+    views as (
+        select
+            object_id,
+            name as table_name,
+            schema_id as schema_id,
+            principal_id as principal_id,
+            'VIEW' as table_type
+        from
+            sys.views with (nolock)
+    ),
+
+    views_with_metadata as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            coalesce(views.principal_id, schemas.principal_id) as owner_principal_id,
+            table_type
+        from
+            views
+        join schemas on views.schema_id = schemas.schema_id
+    ),
+
+    tables_and_views as (
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            tables_with_metadata
+        join principals on tables_with_metadata.owner_principal_id = principals.principal_id
+        union all
+        select
+            object_id,
+            table_name,
+            schema_name,
+            principal_name,
+            table_type
+        from
+            views_with_metadata
+        join principals on views_with_metadata.owner_principal_id = principals.principal_id
+    ),
+
+    cols as (
+
+        select
+            c.object_id,
+            c.name as column_name,
+            c.column_id as column_index,
+            t.name as column_type
+        from sys.columns as c with (nolock)
+        left join sys.types as t on c.system_type_id = t.system_type_id
+    )
+
+    select
+        DB_NAME() as table_database,
+        tv.schema_name as table_schema,
+        tv.table_name,
+        tv.table_type,
+        null as table_comment,
+        tv.principal_name as table_owner,
+        cols.column_name,
+        cols.column_index,
+        cols.column_type,
+        null as column_comment
+    from tables_and_views tv
+    join cols on tv.object_id = cols.object_id
+    where (
+                (
+                    upper(tv.schema_name) = upper('DW')
+                    and upper(tv.table_name) = upper('dim_tiempo')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('DW')
+                    and upper(tv.table_name) = upper('fact_customer_period')
+                )
+             or 
+                (
+                    upper(tv.schema_name) = upper('DW')
+                    and upper(tv.table_name) = upper('dim_customer')
+                )
+            )
+
+    order by column_index
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+[0m16:15:37.891960 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:15:37.891960 [debug] [ThreadPool]: fabric adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=LAPTOP-21K41U8Q;Database=TR_BI_BBVA;Pooling=true;SQL_ATTR_TRACE=SQL_OPT_TRACE_OFF;trusted_connection=Yes;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.9;ConnectRetryCount=3;ConnectRetryInterval=10
+[0m16:15:37.891960 [debug] [ThreadPool]: fabric adapter: Connected to db: TR_BI_BBVA
+[0m16:15:38.018836 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:15:38.020837 [debug] [ThreadPool]: On MASTER_BBVA.information_schema: ROLLBACK
+[0m16:15:38.021846 [debug] [ThreadPool]: On MASTER_BBVA.information_schema: Close
+[0m16:15:38.067309 [info ] [MainThread]: Catalog written to D:\REPOS\DBT_BBVA\target\catalog.json
+[0m16:15:38.069307 [debug] [MainThread]: Command `dbt docs generate` succeeded at 16:15:38.069307 after 8.78 seconds
+[0m16:15:38.069307 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m16:15:38.070304 [debug] [MainThread]: Connection 'MASTER_BBVA.information_schema' was properly closed.
+[0m16:15:38.070304 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224D0E5A110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224CA9EF110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224CE2C9610>]}
+[0m16:15:38.071302 [debug] [MainThread]: Flushing usage events
+[0m16:15:38.468633 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m16:15:38.469632 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/brooklyn-data/dbt_artifacts.json
+[0m16:15:38.613773 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/brooklyn-data/dbt_artifacts.json 200
+[0m16:15:38.616053 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m16:15:38.773016 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m16:15:38.777036 [info ] [MainThread]: Installing brooklyn-data/dbt_artifacts
+[0m16:15:40.216537 [info ] [MainThread]: Installed from version 0.6.0
+[0m16:15:40.216537 [info ] [MainThread]: Updated version available: 2.9.3
+[0m16:15:40.217537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'adc0a9a8-18a6-414e-af55-21f25c13613b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF9CE90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF66B90>]}
+[0m16:15:40.217537 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m16:15:41.108517 [info ] [MainThread]: Installed from version 0.8.6
+[0m16:15:41.109518 [info ] [MainThread]: Updated version available: 1.3.0
+[0m16:15:41.109518 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'adc0a9a8-18a6-414e-af55-21f25c13613b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FAADE650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FAB39250>]}
+[0m16:15:41.110518 [info ] [MainThread]: 
+[0m16:15:41.111519 [info ] [MainThread]: Updates available for packages: ['brooklyn-data/dbt_artifacts', 'dbt-labs/dbt_utils']                 
+Update your versions in packages.yml, then run dbt deps
+[0m16:15:41.113517 [debug] [MainThread]: Command `cli deps` succeeded at 16:15:41.113517 after 3.68 seconds
+[0m16:15:41.113517 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBA10790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBF07E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3FBEFBD50>]}
+[0m16:15:41.114517 [debug] [MainThread]: Flushing usage events
