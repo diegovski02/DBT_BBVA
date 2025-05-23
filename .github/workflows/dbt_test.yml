@@ -59,12 +59,12 @@ jobs:
       - name: Test DBT connection
         working-directory: ./bbva_analysis
         run: |
-          dbt debug --profiles-dir ~/.dbt
+          dbt debug
           
       - name: Generate DBT docs
         working-directory: ./bbva_analysis
         run: |
-          dbt docs generate --profiles-dir ~/.dbt
+          dbt docs generate
           
       - name: Upload DBT docs as artifact
         uses: actions/upload-artifact@v4
