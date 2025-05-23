@@ -15,18 +15,18 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4  # Actualizado a v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           
       - name: Install system dependencies for SQL Server
         run: |
-          # Método alternativo - descargar directamente el paquete
+          # Instalar driver ODBC 17 para SQL Server en Ubuntu
           sudo apt-get update
           sudo apt-get install -y wget unixodbc-dev
-          # Descargar e instalar directamente el driver ODBC 18
-          wget https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/m/msodbcsql18/msodbcsql18_18.4.1.1-1_amd64.deb
-          sudo ACCEPT_EULA=Y dpkg -i msodbcsql18_18.4.1.1-1_amd64.deb || true
+          # Descargar e instalar directamente el driver ODBC 17
+          wget https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/m/msodbcsql17/msodbcsql17_17.10.6.1-1_amd64.deb
+          sudo ACCEPT_EULA=Y dpkg -i msodbcsql17_17.10.6.1-1_amd64.deb || true
           sudo apt-get install -f -y
           
       - name: Install DBT SQL Server adapter and dependencies
@@ -37,11 +37,21 @@ jobs:
       - name: Create profiles.yml for DBT
         run: |
           mkdir -p ~/.dbt
-          printf "bbva_analysis:\n  target: dev\n  outputs:\n    dev:\n      type: sqlserver\n      driver: 'ODBC Driver 18 for SQL Server'\n      server: '%s'\n      port: 1433\n      database: '%s'\n      schema: 'dbo'\n      authentication: sql\n      user: '%s'\n      password: '%s'\n      encrypt: true\n      trust_cert: true\n      threads: 1\n" \
-            "${{ secrets.SQL_SERVER_HOST }}" \
-            "${{ secrets.SQL_SERVER_DATABASE }}" \
-            "${{ secrets.SQL_SERVER_USER }}" \
-            "${{ secrets.SQL_SERVER_PASSWORD }}" > ~/.dbt/profiles.yml
+          cat > ~/.dbt/profiles.yml << 'EOF'
+          bbva_analysis:
+            outputs:
+              dev:
+                type: sqlserver
+                driver: 'ODBC Driver 17 for SQL Server'
+                server: 'LAPTOP-21K41U8Q'
+                database: 'TR_BI_BBVA'
+                schema: 'dbo'
+                windows_login: true
+                encrypt: false
+                trust_cert: true
+                threads: 1
+            target: dev
+          EOF
           echo "Generated profiles.yml:"
           cat ~/.dbt/profiles.yml
           
