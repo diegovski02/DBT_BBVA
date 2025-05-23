@@ -48871,31 +48871,87 @@ Update your versions in packages.yml, then run dbt deps
 [0m07:35:10.336551 [debug] [MainThread]: Command `cli deps` succeeded at 07:35:10.336551 after 3.18 seconds
 [0m07:35:10.336551 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016871D3E6D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016871D3E610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016871BFE8D0>]}
 [0m07:35:10.337551 [debug] [MainThread]: Flushing usage events
-[0m11:45:19.706545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9B6B150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9B6B7D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9B6BCD0>]}
+[0m11:48:15.391047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F72380BD90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F72380BF90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F72380B1D0>]}
 
 
-============================== 11:45:19.711546 | b9c853ef-3e65-4a39-9bd3-0b1e20dae125 ==============================
-[0m11:45:19.711546 [info ] [MainThread]: Running with dbt=1.8.0
-[0m11:45:19.712550 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\compu\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'd:\\REPOS\\DBT_BBVA\\logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt ', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
-[0m11:45:19.904544 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b9c853ef-3e65-4a39-9bd3-0b1e20dae125', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA974AA10>]}
-[0m11:45:20.053544 [debug] [MainThread]: Set downloads directory='C:\Users\compu\AppData\Local\Temp\dbt-downloads-sgzk4yes'
-[0m11:45:20.054548 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
-[0m11:45:20.575849 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
-[0m11:45:20.577848 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/brooklyn-data/dbt_artifacts.json
-[0m11:45:20.749851 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/brooklyn-data/dbt_artifacts.json 200
-[0m11:45:20.755849 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
-[0m11:45:20.888802 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
-[0m11:45:20.898802 [info ] [MainThread]: Installing brooklyn-data/dbt_artifacts
-[0m11:45:22.847026 [info ] [MainThread]: Installed from version 0.6.0
-[0m11:45:22.848026 [info ] [MainThread]: Updated version available: 2.9.3
-[0m11:45:22.849026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'b9c853ef-3e65-4a39-9bd3-0b1e20dae125', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9C75E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9BB6990>]}
-[0m11:45:22.850026 [info ] [MainThread]: Installing dbt-labs/dbt_utils
-[0m11:45:23.850860 [info ] [MainThread]: Installed from version 0.8.6
-[0m11:45:23.850860 [info ] [MainThread]: Updated version available: 1.3.0
-[0m11:45:23.852857 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'b9c853ef-3e65-4a39-9bd3-0b1e20dae125', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9B693D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA9BF0E90>]}
-[0m11:45:23.853857 [info ] [MainThread]: 
-[0m11:45:23.854856 [info ] [MainThread]: Updates available for packages: ['brooklyn-data/dbt_artifacts', 'dbt-labs/dbt_utils']                 
-Update your versions in packages.yml, then run dbt deps
-[0m11:45:23.858861 [debug] [MainThread]: Command `cli deps` succeeded at 11:45:23.858861 after 4.28 seconds
-[0m11:45:23.858861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA32AA650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA32A9F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CEA32AA550>]}
-[0m11:45:23.859861 [debug] [MainThread]: Flushing usage events
+============================== 11:48:15.399047 | b2a72fd4-b5eb-47a6-bd86-406d4aadb755 ==============================
+[0m11:48:15.399047 [info ] [MainThread]: Running with dbt=1.8.0
+[0m11:48:15.401046 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\compu\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'd:\\REPOS\\DBT_BBVA\\logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt ', 'send_anonymous_usage_stats': 'True'}
+[0m11:48:15.723047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b2a72fd4-b5eb-47a6-bd86-406d4aadb755', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F7238698D0>]}
+[0m11:48:15.784047 [error] [MainThread]: Encountered an error:
+[WinError 32] El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso: 'dbt_packages\\dbt_artifacts\\dbt_packages\\dbt-utils-0.8.6\\integration_tests'
+[0m11:48:15.794046 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\shutil.py", line 623, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 32] El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso: 'dbt_packages\\dbt_artifacts\\dbt_packages\\dbt-utils-0.8.6\\integration_tests'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 201, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 247, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\main.py", line 446, in deps
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\task\deps.py", line 233, in run
+    system.rmtree(self.project.packages_install_path)
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt_common\clients\system.py", line 715, in rmtree
+    return shutil.rmtree(path, onerror=chmod_and_retry)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 758, in rmtree
+    return _rmtree_unsafe(path, onerror)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 616, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  File "C:\Program Files\Python311\Lib\shutil.py", line 616, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  File "C:\Program Files\Python311\Lib\shutil.py", line 616, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  [Previous line repeated 1 more time]
+  File "C:\Program Files\Python311\Lib\shutil.py", line 625, in _rmtree_unsafe
+    onerror(os.rmdir, path, sys.exc_info())
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt_common\clients\system.py", line 661, in chmod_and_retry
+    func(path)
+PermissionError: [WinError 32] El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso: 'dbt_packages\\dbt_artifacts\\dbt_packages\\dbt-utils-0.8.6\\integration_tests'
+
+[0m11:48:15.797047 [debug] [MainThread]: Command `cli deps` failed at 11:48:15.797047 after 0.62 seconds
+[0m11:48:15.799047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F7233FAE10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F71CF6A550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F71CF6A490>]}
+[0m11:48:15.800046 [debug] [MainThread]: Flushing usage events
+[0m11:48:17.069578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A7E5990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A38B350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A7E5D50>]}
+
+
+============================== 11:48:17.076577 | dd24f841-d36c-4e16-9ee0-de38bb371c17 ==============================
+[0m11:48:17.076577 [info ] [MainThread]: Running with dbt=1.8.0
+[0m11:48:17.077577 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\compu\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt ', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:48:17.079577 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path d:\REPOS\DBT_BBVA\dbt_packages\dbt_artifacts\dbt_packages\dbt-utils-0.8.6\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:48:17.082577 [debug] [MainThread]: Command `cli deps` failed at 11:48:17.082577 after 0.19 seconds
+[0m11:48:17.083577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A79C750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A799410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002163A799790>]}
+[0m11:48:17.084578 [debug] [MainThread]: Flushing usage events
+[0m11:48:17.362577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F963468D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F96345810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F96346A90>]}
+
+
+============================== 11:48:17.371576 | c214f855-a0b7-433b-9eb1-3437a2f70818 ==============================
+[0m11:48:17.371576 [info ] [MainThread]: Running with dbt=1.8.0
+[0m11:48:17.373577 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\compu\\.dbt', 'log_path': 'logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt ', 'send_anonymous_usage_stats': 'True'}
+[0m11:48:17.375578 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path d:\REPOS\DBT_BBVA\dbt_packages\dbt_artifacts\dbt_packages\dbt-utils-0.8.6\integration_tests\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:48:17.377579 [debug] [MainThread]: Command `cli deps` failed at 11:48:17.377579 after 0.18 seconds
+[0m11:48:17.379576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F95EEAE10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F96344A90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013F96344F10>]}
+[0m11:48:17.380577 [debug] [MainThread]: Flushing usage events
