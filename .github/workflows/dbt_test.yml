@@ -25,9 +25,13 @@ jobs:
         pip install dbt-sqlserver
         
     - name: Install DBT dependencies
-      run: |
-        dbt deps
+      run: dbt deps
         
     - name: Generate DBT documentation
-      run: |
-        dbt docs serve
+      run: dbt docs generate
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./target
