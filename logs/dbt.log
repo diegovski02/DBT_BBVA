@@ -48982,3 +48982,4 @@ Runtime Error
 Update your versions in packages.yml, then run dbt deps
 [0m15:13:54.621907 [debug] [MainThread]: Command `cli deps` succeeded at 15:13:54.621907 after 10.97 seconds
 [0m15:13:54.622929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025A4E08A590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025A4E089F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025A4E08A550>]}
+[0m15:13:54.622929 [debug] [MainThread]: Flushing usage events
