@@ -1,5 +1,4 @@
 name: CI-Test
-
 on:
   push:
     branches: [ "main" ]
@@ -10,27 +9,73 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
       - name: Set up Python 3.11
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
+          
+      - name: Install system dependencies for SQL Server
+        run: |
+          # Instalar driver ODBC para SQL Server en Ubuntu
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev
+          
       - name: Install DBT SQL Server adapter and dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          pip install dbt-sqlserver
-
-      - name: Crear profiles.yml para DBT
+          pip install dbt-sqlserver dbt-core
+          
+      - name: Create profiles.yml for DBT
         run: |
           mkdir -p ~/.dbt
-          printf "bbva_analysis:\n  target: dev\n  outputs:\n    dev:\n      type: sqlserver\n      driver: 'ODBC Driver 17 for SQL Server'\n      server: 'LAPTOP-21K41U8Q'\n      database: 'TR_BI_BBVA'\n      schema: 'dbo'\n      windows_login: true\n      encrypt: true\n      trust_cert: true\n      threads: 1\n" > ~/.dbt/profiles.yml
-
+          cat << EOF > ~/.dbt/profiles.yml
+          bbva_analysis:
+            target: dev
+            outputs:
+              dev:
+                type: sqlserver
+                driver: 'ODBC Driver 17 for SQL Server'
+                server: '${{ secrets.SQL_SERVER_HOST }}'
+                port: 1433
+                database: '${{ secrets.SQL_SERVER_DATABASE }}'
+                schema: 'dbo'
+                authentication: sql
+                user: '${{ secrets.SQL_SERVER_USER }}'
+                password: '${{ secrets.SQL_SERVER_PASSWORD }}'
+                encrypt: true
+                trust_cert: true
+                threads: 1
+          EOF
+          
+      - name: Test DBT connection
+        working-directory: ./bbva_analysis
+        run: |
+          dbt debug --profiles-dir ~/.dbt
+          
+      - name: Install DBT dependencies
+        working-directory: ./bbva_analysis
+        run: |
+          dbt deps --profiles-dir ~/.dbt
+          
+      - name: Run DBT tests
+        working-directory: ./bbva_analysis
+        run: |
+          dbt test --profiles-dir ~/.dbt
+          
       - name: Generate DBT docs
         working-directory: ./bbva_analysis
         run: |
           dbt docs generate --profiles-dir ~/.dbt
+          
+      - name: Upload DBT docs as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dbt-docs
+          path: ./bbva_analysis/target/
