@@ -37,34 +37,23 @@ jobs:
       - name: Create profiles.yml for DBT
         run: |
           mkdir -p ~/.dbt
-          cat << EOF > ~/.dbt/profiles.yml
-          bbva_analysis:
-            target: dev
-            outputs:
-              dev:
-                type: sqlserver
-                driver: 'ODBC Driver 18 for SQL Server'
-                server: '${{ secrets.SQL_SERVER_HOST }}'
-                port: 1433
-                database: '${{ secrets.SQL_SERVER_DATABASE }}'
-                schema: 'dbo'
-                authentication: sql
-                user: '${{ secrets.SQL_SERVER_USER }}'
-                password: '${{ secrets.SQL_SERVER_PASSWORD }}'
-                encrypt: true
-                trust_cert: true
-                threads: 1
-          EOF
+          printf "bbva_analysis:\n  target: dev\n  outputs:\n    dev:\n      type: sqlserver\n      driver: 'ODBC Driver 18 for SQL Server'\n      server: '%s'\n      port: 1433\n      database: '%s'\n      schema: 'dbo'\n      authentication: sql\n      user: '%s'\n      password: '%s'\n      encrypt: true\n      trust_cert: true\n      threads: 1\n" \
+            "${{ secrets.SQL_SERVER_HOST }}" \
+            "${{ secrets.SQL_SERVER_DATABASE }}" \
+            "${{ secrets.SQL_SERVER_USER }}" \
+            "${{ secrets.SQL_SERVER_PASSWORD }}" > ~/.dbt/profiles.yml
+          echo "Generated profiles.yml:"
+          cat ~/.dbt/profiles.yml
           
       - name: Test DBT connection
         working-directory: ./bbva_analysis
         run: |
-          dbt debug
+          dbt debug --profiles-dir ~/.dbt
           
       - name: Generate DBT docs
         working-directory: ./bbva_analysis
         run: |
-          dbt docs generate
+          dbt docs generate --profiles-dir ~/.dbt
           
       - name: Upload DBT docs as artifact
         uses: actions/upload-artifact@v4
