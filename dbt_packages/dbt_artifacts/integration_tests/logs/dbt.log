@@ -1,0 +1,2540 @@
+
+
+============================== 11:48:06.359555 | e704afdc-738e-48c7-83e7-c8cc9c4f204c ==============================
+[0m11:48:06.359555 [info ] [MainThread]: Running with dbt=1.8.0
+[0m11:48:06.361553 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'd:\\REPOS\\DBT_BBVA\\dbt_packages\\dbt_artifacts\\integration_tests\\logs', 'fail_fast': 'False', 'profiles_dir': 'd:\\REPOS\\DBT_BBVA\\dbt_packages\\dbt_artifacts\\integration_tests', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt ', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m11:48:06.371558 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `source-paths` config has been renamed to `model-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m11:48:06.372559 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m11:48:06.589554 [debug] [MainThread]: Set downloads directory='C:\Users\compu\AppData\Local\Temp\dbt-downloads-pyiw7p4s'
+[0m11:48:06.603558 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m11:48:06.866554 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m11:48:06.868554 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m11:48:07.004277 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m11:48:07.031272 [info ] [MainThread]: Updating lock file in file path: D:\REPOS\DBT_BBVA\dbt_packages\dbt_artifacts\integration_tests/package-lock.yml
+[0m11:48:07.046272 [debug] [MainThread]: Set downloads directory='C:\Users\compu\AppData\Local\Temp\dbt-downloads-5lv42ph8'
+[0m11:48:07.055273 [info ] [MainThread]: Installing ../
+[0m11:48:07.059269 [debug] [MainThread]: Creating symlink to local dependency.
+[0m11:48:07.060268 [debug] [MainThread]: Symlinks are not available on this OS, copying dependency.
+[0m11:54:00.072131 [error] [MainThread]: Encountered an error:
+maximum recursion depth exceeded while calling a Python object
+[0m11:54:00.131646 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\deps\local.py", line 67, in install
+    system.make_symlink(src_path, dest_path)
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt_common\clients\system.py", line 238, in make_symlink
+    os.symlink(source, link_path)
+OSError: [WinError 1314] El cliente no dispone de un privilegio requerido: 'D:\\REPOS\\DBT_BBVA\\dbt_packages\\dbt_artifacts' -> 'dbt_packages\\dbt_artifacts'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\shutil.py", line 276, in copyfile
+    _copyfileobj_readinto(fsrc, fdst, min(file_size, COPY_BUFSIZE))
+  File "C:\Program Files\Python311\Lib\shutil.py", line 180, in _copyfileobj_readinto
+    n = fsrc_readinto(mv)
+        ^^^^^^^^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+During handling of the above exception, another exception occurred:
+
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+During handling of the above exception, another exception occurred:
+
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 201, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 247, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\cli\main.py", line 446, in deps
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\task\deps.py", line 260, in run
+    package.install(self.project, renderer)
+  File "C:\Users\compu\AppData\Roaming\Python\Python311\site-packages\dbt\deps\local.py", line 70, in install
+    shutil.copytree(src_path, dest_path)
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 496, in _copytree
+    copytree(srcobj, dstname, symlinks, ignore, copy_function,
+  File "C:\Program Files\Python311\Lib\shutil.py", line 560, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\shutil.py", line 500, in _copytree
+    copy_function(srcobj, dstname)
+  File "C:\Program Files\Python311\Lib\shutil.py", line 436, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "C:\Program Files\Python311\Lib\shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+[0m11:54:00.143682 [debug] [MainThread]: Command `cli deps` failed at 11:54:00.143682 after 353.91 seconds
+[0m11:54:00.145649 [debug] [MainThread]: Flushing usage events
