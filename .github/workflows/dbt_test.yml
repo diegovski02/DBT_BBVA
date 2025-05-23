@@ -1,4 +1,5 @@
 name: CI-Test
+
 on:
   push:
     branches: [ "main" ]
@@ -9,62 +10,58 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          
+
       - name: Install system dependencies for SQL Server
         run: |
-          # Instalar driver ODBC 17 para SQL Server en Ubuntu
           sudo apt-get update
           sudo apt-get install -y wget unixodbc-dev
-          # Descargar e instalar directamente el driver ODBC 17
           wget https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/m/msodbcsql17/msodbcsql17_17.10.6.1-1_amd64.deb
           sudo ACCEPT_EULA=Y dpkg -i msodbcsql17_17.10.6.1-1_amd64.deb || true
           sudo apt-get install -f -y
-          
+
       - name: Install DBT SQL Server adapter and dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install dbt-sqlserver dbt-core
-          
+
       - name: Create profiles.yml for DBT
         run: |
           mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml << 'EOF'
-          bbva_analysis:
-            outputs:
-              dev:
-                type: sqlserver
-                driver: 'ODBC Driver 17 for SQL Server'
-                server: 'LAPTOP-21K41U8Q'
-                database: 'TR_BI_BBVA'
-                schema: 'dbo'
-                windows_login: true
-                encrypt: false
-                trust_cert: true
-                threads: 1
-            target: dev
-          EOF
+          echo "bbva_analysis:" > ~/.dbt/profiles.yml
+          echo "  outputs:" >> ~/.dbt/profiles.yml
+          echo "    dev:" >> ~/.dbt/profiles.yml
+          echo "      type: sqlserver" >> ~/.dbt/profiles.yml
+          echo "      driver: 'ODBC Driver 17 for SQL Server'" >> ~/.dbt/profiles.yml
+          echo "      server: 'LAPTOP-21K41U8Q'" >> ~/.dbt/profiles.yml
+          echo "      database: 'TR_BI_BBVA'" >> ~/.dbt/profiles.yml
+          echo "      schema: 'dbo'" >> ~/.dbt/profiles.yml
+          echo "      windows_login: true" >> ~/.dbt/profiles.yml
+          echo "      encrypt: false" >> ~/.dbt/profiles.yml
+          echo "      trust_cert: true" >> ~/.dbt/profiles.yml
+          echo "      threads: 1" >> ~/.dbt/profiles.yml
+          echo "  target: dev" >> ~/.dbt/profiles.yml
           echo "Generated profiles.yml:"
           cat ~/.dbt/profiles.yml
-          
+
       - name: Test DBT connection
         working-directory: ./bbva_analysis
         run: |
           dbt debug --profiles-dir ~/.dbt
-          
+
       - name: Generate DBT docs
         working-directory: ./bbva_analysis
         run: |
           dbt docs generate --profiles-dir ~/.dbt
-          
+
       - name: Upload DBT docs as artifact
         uses: actions/upload-artifact@v4
         with:
