@@ -1,0 +1,13 @@
+
+
+select
+    cast(ID as varchar(64)) as ID,
+    cast(period as varchar(32)) as period,
+    cast(product as varchar(32)) as product,
+    cast(entity as varchar(32)) as entity,
+    month,
+    type,
+    balance_amount,
+    days_default
+from "TR_BI_BBVA"."dbo"."Balances"
+where ID is not null;
