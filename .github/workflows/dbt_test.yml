@@ -1,5 +1,4 @@
 name: CI - DBT on SQL Server
-
 on:
   push:
     branches: [ "main" ]
@@ -10,62 +9,43 @@ on:
 jobs:
   dbt_deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: 📦 Checkout del repositorio
-        uses: actions/checkout@v4
-
-      - name: 🐍 Configurar Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: 🧱 Instalar dependencias del sistema para SQL Server
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unixodbc-dev
-          wget https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/m/msodbcsql17/msodbcsql17_17.10.6.1-1_amd64.deb
-          sudo ACCEPT_EULA=Y dpkg -i msodbcsql17_17.10.6.1-1_amd64.deb || true
-          sudo apt-get install -f -y
-
-      - name: 📦 Instalar DBT y adaptador para SQL Server
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip install dbt-core dbt-sqlserver
-
-      - name: 🛠️ Crear archivo profiles.yml de DBT
-        run: |
-          mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml <<EOF
-bbva_analysis:
-  outputs:
-    dev:
-      type: sqlserver
-      driver: 'ODBC Driver 17 for SQL Server'
-      server: 'LAPTOP-21K41U8Q'
-      database: 'TR_BI_BBVA'
-      schema: 'dbo'
-      windows_login: true
-      encrypt: false
-      trust_cert: true
-      threads: 1
-  target: dev
-EOF
-
-      - name: 🔍 Verificar conexión con DBT
-        working-directory: ./bbva_analysis
-        run: dbt debug --profiles-dir ~/.dbt
-
-      - name: 🚀 Ejecutar modelos de DBT
-        working-directory: ./bbva_analysis
-        run: dbt run --profiles-dir ~/.dbt
-
-      - name: 📄 Generar documentación de DBT
-        working-directory: ./bbva_analysis
-        run: dbt docs generate --profiles-dir ~/.dbt
-
-      - name: ☁️ Subir documentación generada como artefacto
-        uses: actions/upload-artifact@v4
-        with:
-          name: dbt-docs
-          path: ./bbva_analysis/target/
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install DBT and SQL Server adapter
+      run: |
+        pip install --upgrade pip
+        pip install dbt-sqlserver
+        
+    - name: Install DBT dependencies
+      run: |
+        dbt deps
+        
+    - name: Generate DBT documentation
+      run: |
+        dbt docs generate
+        
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dbt-docs
+        path: |
+          target/catalog.json
+          target/manifest.json
+          target/index.html
+        retention-days: 30
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./target
+        publish_branch: gh-pages
