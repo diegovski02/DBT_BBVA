@@ -1,0 +1,14 @@
+bbva_analysis:
+  outputs:
+    dev:
+      type: sqlserver
+      driver: 'ODBC Driver 17 for SQL Server'
+      server: 'LAPTOP-21K41U8Q'
+      database: 'TR_BI_BBVA'
+      schema: 'dbo'
+      windows_login: true
+      encrypt: False
+      trust_cert: True
+      threads: 1
+
+  target: dev
